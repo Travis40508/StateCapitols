@@ -17,5 +17,6 @@ public class Home {
 
     private void startApp() {
         messages.greetUser();
+        appLogic.startTest();
     }
 }
