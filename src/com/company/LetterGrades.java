@@ -5,6 +5,9 @@ package com.company;
  */
 public enum LetterGrades {
 
+    /**
+     * Enum example for letter grades.
+     */
     A("A"),
     B("B"),
     C("C"),

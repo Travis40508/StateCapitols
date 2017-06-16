@@ -12,6 +12,10 @@ public class AppLogic {
     private List<String> stateList;
     private List<String> statesWrong;
     private int amountCorrect = 0;
+
+    /**
+     * Initializes all of our member variables.
+     */
     public AppLogic() {
         statesWrong = new ArrayList<>();
         hashMap = new HashMap();
@@ -22,7 +26,9 @@ public class AppLogic {
     }
 
 
-
+    /**
+     * Populates our hashmap with key-value pairs.
+     */
     private void loadHashMap() {
         hashMap.put("Alabama", "Montgomery");
         hashMap.put("Alaska", "Juneau");
@@ -76,6 +82,9 @@ public class AppLogic {
         hashMap.put("Wyoming", "Cheyenne");
     }
 
+    /**
+     * Gives us an arraylist of states to compare to keys for the hashmap. and to quiz us over
+     */
     private void populateStateList() {
         stateList = Arrays.asList("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
                 "Deleware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
@@ -87,14 +96,18 @@ public class AppLogic {
     }
 
 
+    /**
+     * For every tick of i, it grabs a different state, compares it to the keys in the hashmap, and makes sure
+     * that your answer is the same as the key.
+     */
     public void startTest() {
-        for(int i = 0; i < 50; i++) {
+        for (int i = 0; i < 50; i++) {
             messages.quizUser(stateList.get(i));
             String response = responses.getAnswer();
             checkAnswer(stateList.get(i), response);
         }
         messages.showWrongStatesAlert();
-        for(String state : statesWrong) {
+        for (String state : statesWrong) {
             messages.showWrongStates(state);
         }
         int percent = (amountCorrect * 100) / 50;
@@ -102,9 +115,12 @@ public class AppLogic {
     }
 
 
-    private void checkAnswer(String state, String capitol) {
+    /**
+     * The actual checking mentioned above comes from here.
+     */
+    public void checkAnswer(String state, String capitol) {
         String stateCapitol = hashMap.get(state);
-        if(!(stateCapitol.toLowerCase().equals(capitol.toLowerCase()))) {
+        if (!(stateCapitol.toLowerCase().equals(capitol.toLowerCase()))) {
             statesWrong.add(state);
             messages.wrongAnswer(stateCapitol);
         } else {
@@ -113,9 +129,12 @@ public class AppLogic {
         }
     }
 
+    /**
+     * Calculates letter grade based on score. Enum example.
+     */
     private void calculateGrade(int percent) {
         String letterGrade;
-        if(percent > 90) {
+        if (percent > 90) {
             letterGrade = LetterGrades.A.getLetter();
         } else if (percent > 80) {
             letterGrade = LetterGrades.B.getLetter();

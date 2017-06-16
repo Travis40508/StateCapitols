@@ -8,6 +8,9 @@ public class Home {
     private Responses responses;
     private AppLogic appLogic;
 
+    /**
+     * Instantiates class instances to be used.
+     */
     public void init() {
         messages = new Messages();
         responses = new Responses();
@@ -15,6 +18,10 @@ public class Home {
         startApp();
     }
 
+    /**
+     * Starts up the app. Since this is a very logic-heavy app, most of the work will be
+     * done in the applogic class.
+     */
     private void startApp() {
         messages.greetUser();
         appLogic.startTest();

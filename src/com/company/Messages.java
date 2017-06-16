@@ -4,10 +4,15 @@ package com.company;
  * Created by rodneytressler on 6/16/17.
  */
 public class Messages {
+
+    /**
+     * Self-explanatory messages.
+     */
+
     public void greetUser() {
-        System.out.println("Welcome to the state Capitols test! Users will be \n " +
-                "graded on their ability to answer all 50 state capitols on a " +
-                "scale of A-F (100%-0%). Make sure you spell the capitols correctly. Good luck!");
+        System.out.println("Welcome to the state Capitols test! Users will be \n" +
+                "graded on their ability to answer all 50 state capitols on a \n" +
+                "scale of A-F (100%-0%). Make sure you spell the capitols correctly. Good luck! \n");
     }
 
     public void quizUser(String state) {
@@ -15,11 +20,11 @@ public class Messages {
     }
 
     public void wrongAnswer(String stateCapitol) {
-        System.out.println("Wrong! The correct answer is " + stateCapitol);
+        System.out.println("Wrong! The correct answer is " + stateCapitol + "\n");
     }
 
     public void correctAnswer() {
-        System.out.println("That's correct!");
+        System.out.println("That's correct! \n");
     }
 
     public void showWrongStates(String state) {
